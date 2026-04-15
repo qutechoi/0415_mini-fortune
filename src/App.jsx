@@ -4,74 +4,78 @@ import './App.css'
 const fortuneThemes = [
   {
     key: 'sunrise',
-    label: '새벽형',
-    intro: '조용한 시작이 오늘의 기세를 정해줄 거야.',
-    vibe: '맑고 정돈된 결',
+    label: '여명의 카드',
+    intro: '희미한 빛이 천천히 번지듯, 오늘은 서두르지 않는 시작이 운을 깨운다.',
+    vibe: '맑고 정돈된 기류',
     palette: 'sunrise',
+    sigil: '✦',
   },
   {
     key: 'spark',
-    label: '도약형',
-    intro: '작은 결심 하나가 흐름을 크게 바꿀 수 있어.',
-    vibe: '빠르고 선명한 결',
+    label: '도약의 카드',
+    intro: '작은 결심 하나가 운명의 톱니를 다시 맞물리게 할 수 있어.',
+    vibe: '빠르고 선명한 파동',
     palette: 'spark',
+    sigil: '✧',
   },
   {
     key: 'moon',
-    label: '직감형',
-    intro: '오늘은 논리보다 감각이 먼저 맞을 수도 있어.',
-    vibe: '부드럽고 몽환적인 결',
+    label: '월광의 카드',
+    intro: '설명되지 않는 직감이 오늘은 가장 정확한 나침반이 될지도 몰라.',
+    vibe: '몽환적이고 부드러운 결',
     palette: 'moon',
+    sigil: '☾',
   },
   {
     key: 'forest',
-    label: '회복형',
-    intro: '속도를 줄일수록 오히려 더 멀리 갈 수 있어.',
-    vibe: '차분하고 깊은 결',
+    label: '회복의 카드',
+    intro: '속도를 늦춘 자만이 오늘 숨겨진 문을 조용히 발견하게 된다.',
+    vibe: '차분하고 깊은 숨결',
     palette: 'forest',
+    sigil: '❈',
   },
 ]
 
 const fortunePool = {
   overall: [
-    '멈춰 있던 일이 생각보다 부드럽게 다시 풀릴 수 있어.',
-    '오늘은 크게 밀기보다 정확하게 고르는 쪽이 이득이야.',
-    '작은 타이밍 하나가 하루의 인상을 꽤 좋게 바꿔줄 수 있어.',
-    '괜히 흔들리던 마음이 오후쯤엔 자리를 찾을 가능성이 커.',
-    '조용히 쌓은 게 뒤늦게 티 나는 날이야.',
+    '멈춰 있던 기류가 서서히 다시 흐르기 시작한다. 오늘은 억지보다 자연스러운 흐름을 믿는 편이 맞아.',
+    '한 번의 정확한 선택이 여러 갈래의 망설임을 잠재울 수 있는 날이다.',
+    '작은 타이밍 하나가 하루 전체의 결을 아름답게 바꿔놓을 가능성이 크다.',
+    '흩어졌던 마음은 늦은 오후가 되면 제자리를 되찾을 조짐이 보인다.',
+    '조용히 쌓인 것들이 마침내 존재감을 드러내기 시작하는 하루다.',
   ],
   love: [
-    '감정 표현은 과한 설명보다 한 문장이 더 잘 먹힐 수 있어.',
-    '상대 마음을 추측하기보다 가볍게 확인해보는 게 좋아.',
-    '괜히 밀당하지 말고, 편한 온도로 다가가는 쪽이 맞아.',
-    '기대보다 대화의 결이 부드럽게 이어질 가능성이 있어.',
-    '혼자 정리하던 감정이 예상 밖의 반응으로 가벼워질 수 있어.',
+    '마음을 길게 설명하기보다, 진심이 묻어나는 한 문장이 더 멀리 닿을 수 있어.',
+    '상대의 마음을 짐작만 하지 말고, 부드럽게 확인하는 용기가 관계를 가볍게 만든다.',
+    '억지로 밀고 당기기보다, 편안한 온도로 다가갈수록 감정의 문이 열린다.',
+    '예상보다 대화의 흐름이 다정하게 이어질 가능성이 있다.',
+    '혼자 접어두던 감정이 의외의 반응 덕분에 한결 가벼워질 수 있어.',
   ],
   money: [
-    '오늘 소비는 기분 보상형인지 먼저 체크해보는 게 좋아.',
-    '큰 지출보다 자잘한 새는 돈을 잡는 쪽이 더 효과적이야.',
-    '당장 결제하기보다 하루만 묵히면 판단이 또렷해질 수 있어.',
-    '정보성 소비는 괜찮지만, 충동성 소비는 만족도가 짧을 수 있어.',
-    '지갑은 닫고 메모장은 여는 쪽이 오늘은 승률이 높아.',
+    '오늘의 지출은 필요보다 감정의 보상인지 먼저 살피는 게 좋아.',
+    '큰돈보다 자잘하게 새는 흐름을 붙잡는 편이 훨씬 현명하다.',
+    '지금 바로 결제하지 말고 하루만 묵히면 판단의 안개가 걷힐 가능성이 크다.',
+    '정보를 위한 소비는 남지만, 충동을 위한 소비는 금방 빛이 바랠 수 있어.',
+    '오늘은 지갑보다 메모장을 여는 쪽이 미래의 운을 아껴준다.',
   ],
   work: [
-    '할 일을 줄이는 순간 오히려 집중이 살아날 수 있어.',
-    '대충 많이 하기보다 하나를 깔끔하게 끝내는 게 오늘의 포인트야.',
-    '오전에 방향만 잘 잡으면 오후는 생각보다 편해질 거야.',
-    '혼자 끙끙대던 일은 짧게 공유하면 더 빨리 풀릴 수 있어.',
-    '완벽주의보다 마감 감각을 우선하면 흐름이 좋아져.',
+    '할 일을 줄이는 순간 오히려 집중이 되살아날 수 있다.',
+    '많이 하는 것보다 하나를 또렷하게 끝내는 편이 오늘의 승부수야.',
+    '오전에 방향만 정확히 잡아두면 오후는 생각보다 부드럽게 흘러갈 거야.',
+    '혼자 오래 붙든 문제는 짧은 공유 한 번으로 의외로 쉽게 풀릴 수 있다.',
+    '완벽함보다 마감의 리듬을 택하는 편이 오늘은 더 현명하다.',
   ],
   luck: [
-    '행운 포인트는 우연한 대화, 짧은 산책, 예상 밖의 추천이야.',
-    '오늘의 행운은 빠른 결정이 아니라 잘 고른 타이밍에서 와.',
-    '익숙한 루틴 안에서 의외의 기회가 숨어 있을 수 있어.',
-    '무심코 넘긴 메시지 하나가 좋은 실마리가 될 수 있어.',
-    '정리와 삭제가 곧 운을 여는 행동이 될 가능성이 있어.',
+    '우연한 대화, 짧은 산책, 예상 밖의 추천 속에 행운의 실마리가 숨어 있다.',
+    '오늘의 행운은 빠른 결정이 아니라 잘 고른 타이밍에서 들어온다.',
+    '익숙한 루틴 속 작은 이탈이 뜻밖의 기회를 불러올 수 있어.',
+    '무심코 지나칠 뻔한 메시지 하나가 좋은 방향을 열어줄 수 있다.',
+    '정리와 삭제가 곧 새 운을 들이는 의식처럼 작동할 가능성이 있다.',
   ],
 }
 
 const luckyColors = ['라벤더 미스트', '오로라 블루', '앰버 골드', '모스 그린', '로즈 핑크']
-const luckyItems = ['차가운 물 한 잔', '이어폰', '메모 앱', '가벼운 셔츠', '텀블러', '작은 노트']
+const luckyItems = ['은은한 향의 차', '이어폰', '작은 노트', '실버 액세서리', '텀블러', '가벼운 셔츠']
 const luckyTimes = ['09:20', '11:11', '14:40', '17:25', '21:07']
 
 function pickFrom(list, index) {
@@ -99,33 +103,41 @@ function App() {
   const [name, setName] = useState('Qute')
   const [themeIndex, setThemeIndex] = useState(0)
   const [drawCount, setDrawCount] = useState(1)
+  const [isDrawing, setIsDrawing] = useState(false)
 
-  const fortune = useMemo(() => buildFortune(name || '오늘의 주인공', themeIndex, drawCount), [name, themeIndex, drawCount])
+  const fortune = useMemo(() => buildFortune(name || '이름 없는 여행자', themeIndex, drawCount), [name, themeIndex, drawCount])
 
   const handleDraw = () => {
-    setDrawCount((count) => count + 1)
+    setIsDrawing(true)
+    window.setTimeout(() => {
+      setDrawCount((count) => count + 1)
+      setIsDrawing(false)
+    }, 520)
   }
 
   return (
     <main className={`page-shell ${fortune.theme.palette}`}>
+      <div className="orb orb-left" aria-hidden="true" />
+      <div className="orb orb-right" aria-hidden="true" />
+
       <section className="hero-card">
         <div className="hero-copy">
-          <span className="eyebrow">0415 Mini Fortune</span>
-          <h1>오늘의 운세를 한 장 뽑아봐</h1>
+          <span className="eyebrow">0415 Tarot Fortune</span>
+          <h1>오늘의 카드를 한 장 뒤집어봐</h1>
           <p>
-            이름과 오늘의 분위기를 고르면, 사랑, 돈, 일, 행운 포인트를 감성 카드처럼 보여주는
-            미니 운세 생성기야.
+            이름과 오늘의 기류를 고르면, 사랑, 금전, 일, 행운의 징조를 타로 카드 같은 감성으로
+            펼쳐 보여주는 작은 운세 앱이야.
           </p>
         </div>
 
         <div className="control-card">
           <label className="field">
-            <span>이름</span>
-            <input value={name} onChange={(event) => setName(event.target.value)} placeholder="이름을 적어줘" />
+            <span>이름 또는 호칭</span>
+            <input value={name} onChange={(event) => setName(event.target.value)} placeholder="운세를 받을 이름을 적어줘" />
           </label>
 
           <div className="theme-picker">
-            <span>오늘의 분위기</span>
+            <span>오늘 끌리는 카드</span>
             <div className="theme-grid">
               {fortuneThemes.map((theme, index) => (
                 <button
@@ -134,7 +146,9 @@ function App() {
                   className={index === themeIndex ? 'theme-button active' : 'theme-button'}
                   onClick={() => setThemeIndex(index)}
                 >
-                  <strong>{theme.label}</strong>
+                  <strong>
+                    {theme.sigil} {theme.label}
+                  </strong>
                   <small>{theme.vibe}</small>
                 </button>
               ))}
@@ -142,20 +156,28 @@ function App() {
           </div>
 
           <button type="button" className="draw-button" onClick={handleDraw}>
-            운세 다시 뽑기
+            카드를 다시 펼치기
           </button>
         </div>
       </section>
 
-      <section className="fortune-stage">
-        <article className="fortune-main-card">
+      <section className={`fortune-stage ${isDrawing ? 'is-drawing' : ''}`}>
+        <article className="fortune-main-card tarot-card">
+          <div className="card-stars" aria-hidden="true">
+            <span>✦</span>
+            <span>✧</span>
+            <span>✦</span>
+          </div>
+
           <div className="fortune-main-head">
-            <span className="fortune-badge">{fortune.theme.label}</span>
+            <span className="fortune-badge">
+              {fortune.theme.sigil} {fortune.theme.label}
+            </span>
             <p>{fortune.theme.intro}</p>
           </div>
 
           <div>
-            <h2>{name || '오늘의 주인공'}님의 오늘</h2>
+            <h2>{name || '이름 없는 여행자'}에게 도착한 오늘의 징조</h2>
             <p className="fortune-overall">{fortune.overall}</p>
           </div>
 
@@ -176,24 +198,24 @@ function App() {
         </article>
 
         <div className="fortune-grid">
-          <article className="fortune-detail love">
+          <article className="fortune-detail tarot-card love">
             <span>Love</span>
-            <h3>사랑운</h3>
+            <h3>사랑의 흐름</h3>
             <p>{fortune.love}</p>
           </article>
-          <article className="fortune-detail money">
+          <article className="fortune-detail tarot-card money">
             <span>Money</span>
-            <h3>금전운</h3>
+            <h3>금전의 흐름</h3>
             <p>{fortune.money}</p>
           </article>
-          <article className="fortune-detail work">
+          <article className="fortune-detail tarot-card work">
             <span>Work</span>
-            <h3>일과 집중</h3>
+            <h3>일과 몰입의 흐름</h3>
             <p>{fortune.work}</p>
           </article>
-          <article className="fortune-detail luck">
+          <article className="fortune-detail tarot-card luck">
             <span>Luck</span>
-            <h3>행운 포인트</h3>
+            <h3>행운의 징조</h3>
             <p>{fortune.luck}</p>
           </article>
         </div>
